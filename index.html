@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rich Text Editor</title>
+</head>
+<body>
+    <div class="toolbar" id="toolbar">
+        <select id="font" onchange="format('fontName')">
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Impact">Impact</option>
+            <option value="Palatino Linotype">Palatino Linotype</option>
+            <option value="Garamond">Garamond</option>
+            <option value="Century Gothic">Century Gothic</option>
+            <option value="Bookman">Bookman</option>
+            <option value="Lucida Console">Lucida Console</option>
+            <option value="Monaco">Monaco</option>
+            <option value="Segoe UI">Segoe UI</option>
+            <option value="Trebuchet MS">Trebuchet MS</option>
+            <option value="Webdings">Webdings</option>
+            <option value="Wingdings">Wingdings</option>
+            <option value="Frank Ruhl Libre">Frank Ruhl Libre</option>
+            <option value="Dancing Script">Dancing Script</option>
+            <option value="Lobster">Lobster</option>
+        </select>
+        <button onclick="format('bold')">B</button>
+        <button onclick="format('italic')">I</button>
+        <button onclick="format('underline')">U</button>
+        <button onclick="format('insertUnorderedList')">• List</button>
+        <button onclick="format('insertOrderedList')">1. List</button>
+        <button onclick="format('justifyLeft')">Left</button>
+        <button onclick="format('justifyCenter')">Center</button>
+        <button onclick="format('justifyRight')">Right</button>
+        <select id="fontSize" onchange="format('fontSize')">
+            <option value="1">Tiny</option>
+            <option value="2">Small</option>
+            <option value="3">Normal</option>
+            <option value="4">Large</option>
+            <option value="5">Huge</option>
+        </select>
+        <select id="exportOptions" onchange="exportText(this.value)">
+            <option value="">Export</option>
+            <option value="pdf">Export as PDF</option>
+            <option value="docx">Export as DOCX</option>
+            <option value="txt">Export as TXT</option>
+            <option value="markdown">Export as Markdown</option>
+        </select>
+        <select id="music-selector" onchange="loadMusic(event)">
+            <option value="">Select Music</option>
+            <option value="assets/kanye-lofi.mp3">Lofi - Kanye</option>
+            <option value="assets/drake-lofi.mp3">Lofi - Drake</option>
+            <option value="assets/polog-lofi.mp3">Lofi - Polo G</option>
+            <option value="assets/jcole-lofi.mp3">Lofi - J Cole</option>
+            <option value="assets/theweekend-lofi.mp3">Lofi - The Weekend</option>
+        </select>
+        <label>
+            <input type="checkbox" id="typewriter-toggle" checked onchange="toggleTypewriterSound()"> Typewriter Sound
+        </label>
+    </div>
+    <div class="editor" contenteditable="true" id="editor" onfocus="this.select()" onkeydown="playTypewriterSound(event)">
+        Start typing here...
+    </div>
+    <audio id="typewriter-sound" src="assets/typewriter.mp3"></audio>
+
+    <div class="contributors-section">
+        <button id="contributors-toggle" onclick="toggleContributors()">Contributors</button>
+        <div id="contributors-list" class="hidden">
+            <div class="contributor" data-username="krisyotam">
+                <span>Kris (krisyotam) - 272 commits</span>
+            </div>
+            <div class="contributor" data-username="allytaffet">
+                <span>Ally (allytaffet) - 137 commits</span>
+            </div>
+            <!-- Add more contributors as needed -->
+        </div>
+    </div>
+    
+    
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
